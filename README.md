@@ -27,16 +27,16 @@ While the i3 Mega is a great printer for its price and produces fantastic result
 
 ## How to flash this?
 
-I provided three different precompiled hex files: One for no modifications on the stepper motor drivers - good for people who didn't touch anything yet, one for boards with TMC2208 installed and where the connectors have been flipped and one with TMC2208 and the connectors in original orientation.
+For now only one precompiled firmware is provided but soon several will be provided.
 
 ### Choose your precompiled hex:
 
 - Download the precompiled firmware here: [Releases](https://github.com/agambier/Marlin-AI3M/releases)
 - Choose the correct hex file:
 
-  |               Hardware               |        Firmware name        |
-  | :----------------------------------: | :-------------------------: |
-  | Original stepper motor drivers A4988 | AI3M_A4988_v1.1.9.AGA01.hex |
+  |                           Hardware                           |        Firmware name        |
+  | :----------------------------------------------------------: | :-------------------------: |
+  | Stock machine with original stepper motor drivers A4988 and no other mods | AI3M_A4988_v1.1.9.AGA01.hex |
 
 ### Or compile it yourself:
 
@@ -62,20 +62,34 @@ I provided three different precompiled hex files: One for no modifications on th
 If you have issues with an uneven bed, this is a great feature.
 
 - Level your preheated bed as well as you can
+
 - Send `G29 S1`, your nozzle will go to the first calibration position
+
 - Don't adjust the bed itself with screws, only use software from here on:
+
 - Use a paper (I recommend using thermopaper like a receipt or baking paper)
+
 - Use the onscreen controls or a tool like OctoPrint to lower or raise your nozzle until you feel a light resistance
+
 - If 0.1 mm steps are not enough, you can send specific commands down to 0.02 mm via those three commands:
+
 - To raise: `G91`, `G1 Z+0.02`, `G90` (one after another, not in one line)
+
 - To lower: `G91`, `G1 Z-0.02`, `G90`
+
 - I also added fine Z axis controls to the special menu, might be easier to use.
+
 - When done, send `G29 S2` and repeat the process for the next level point. Continue with `G29 S2`every time.
+
 - After finishing the 25 points, the printer will beep and calculate. 
+
 - After seeing `ok` in the console, send `M500` to save.
+
 - Reboot the printer.
-- To ensure your mesh gets used on every print from now on, go into your slicer settings and look for the start GCode
-- Look for the Z-homing (either just `G28` or `G28 Z0`) command and insert these two right underneath it:
+
+  
+
+  **To ensure your mesh gets used on every print from now on, go into your slicer settings and look for the start GCode, look for the Z-homing (either just `G28` or `G28 Z0`) command and insert these two right underneath it:**
 ```
 M501
 M420 S1
@@ -150,7 +164,6 @@ After flashing the new version, issue a `M502` and `M500`. After that, enter eve
 ## Detailed changes:
 
 - Thermal runaway protection enabled
-- Stepper orientation flipped (you don't have to flip the connectors on the board anymore)
 - Linear advance unlocked (Off by default. [Research, calibrate](http://marlinfw.org/docs/features/lin_advance.html) and then enable with `M900 Kx`)
 - S-Curve Acceleration enabled
 - G26 Mesh Validation enabled
