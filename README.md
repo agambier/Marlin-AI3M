@@ -1,8 +1,6 @@
 # Anycubic i3 Mega Marlin 1.1.9 by davidramiro
 
-This is my slightly customized version of the [Marlin Firmware](https://github.com/MarlinFirmware/Marlin), gratefully based on [derhopp's repo](https://github.com/derhopp/Marlin-with-Anycubic-i3-Mega-TFT) with his remarkable efforts to get the Anycubic i3 Mega TFT screen to work.
-
-Feel free to discuss issues and work with me further optimizing this firmware!
+This is my slightly customized version of the [Marlin Firmware](https://github.com/MarlinFirmware/Marlin), based on [davidramiro's repo](https://github.com/davidramiro/Marlin-AI3M).
 
 I am running this version on an i3 Mega Ultrabase V3 (for distinction of the different versions, check [this Thingiverse thread](https://www.thingiverse.com/groups/anycubic-i3-mega/forums/general/topic:27064)).
 Basically, this should work on every Ultrabase version that has two Z-axis endstops. The new Mega-S works too, but calibrating your extruder is mandatory since it needs to have increased E-steps to around fivefold of the original value, see the instructions below.
@@ -33,12 +31,12 @@ I provided three different precompiled hex files: One for no modifications on th
 
 ### Choose your precompiled hex:
 
-- Download the precompiled firmware here: [Releases](https://github.com/davidramiro/Marlin-AI3M/releases)
+- Download the precompiled firmware here: [Releases](https://github.com/agambier/Marlin-AI3M/releases)
 - Choose the correct hex file:
-- For TMC2208 with connectors in original orientation, use `Marlin-AI3M-XXXXXX-TMC2208.hex`
-- If you use TMC2208 and already reversed your connectors, use `Marlin-AI3M-XXXXXX-TMC2208_reversed.hex`
-- If you use a newer version of the TMC2208 that doesn't require the connector to be reversed (TMC2208 "v2.0" written on the PCB, chip on the top side), please also use `Marlin-AI3M-XXXXXX-TMC2208_reversed.hex`.
-- If you use the original stepper motor drivers, use `Marlin-AI3M-XXXXXX-stock_drivers.hex`.
+
+  |               Hardware               |        Firmware name        |
+  | :----------------------------------: | :-------------------------: |
+  | Original stepper motor drivers A4988 | AI3M_A4988_v1.1.9.AGA01.hex |
 
 ### Or compile it yourself:
 
